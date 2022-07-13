@@ -12,18 +12,22 @@ class NoteList extends StatelessWidget {
       return Obx(
         () => nc.notes.length == 0
             ? Center(
-                child: Image.asset('assets/lists.jpeg'),
+                //child: Image.asset('assets/lists.jpeg'),
               )
             : ListView.builder(
                 itemCount: nc.notes.length,
                 itemBuilder: (context, index) => Card(
                       child: ListTile(
+                          // CheckBox(
+                          //   varlue = values
+                          // ),
                           title: Text(nc.notes[index].title,
                               style: TextStyle(fontWeight: FontWeight.w500)),
                           leading: Text(
-                            (index + 1).toString() + ".",
+                            toString() + ".",
                             style: TextStyle(fontSize: 15),
                           ),
+                          
                           trailing: Wrap(children: <Widget>[
                             IconButton(
                                 icon: Icon(Icons.create),
@@ -32,7 +36,7 @@ class NoteList extends StatelessWidget {
                                 icon: Icon(Icons.delete),
                                 onPressed: () {
                                   Get.defaultDialog(
-                                      title: 'Notu Sil',
+                                      title: 'Are you sure you want to delete?',
                                       middleText: nc.notes[index].title,
                                       onCancel: () => Get.back(),
                                       confirmTextColor: Colors.white,
@@ -51,7 +55,7 @@ class NoteList extends StatelessWidget {
             backgroundColor: Colors.white,
             appBar: AppBar(
               centerTitle: true,
-              title: Text('İş Listesi Uygulaması'),
+              title: Text('Todo List'),
             ),
             floatingActionButton: FloatingActionButton(
               child: Icon(Icons.add),

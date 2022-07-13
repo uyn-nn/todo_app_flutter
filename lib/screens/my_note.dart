@@ -22,9 +22,7 @@ class MyNote extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              title: index == 0
-                  ? Text('Yeni Bir Not Ekle ')
-                  : Text('Notu Güncelle'),
+              title: index == 0 ? Text('Add a new Note') : Text('Enter your note'),
             ),
             body: Padding(
               padding: EdgeInsets.all(15),
@@ -40,8 +38,8 @@ class MyNote extends StatelessWidget {
                         autofocus: true,
                         textCapitalization: TextCapitalization.sentences,
                         decoration: InputDecoration(
-                          hintText: 'Yeni bir not ekle',
-                          labelText: ' Notunuzu Giriniz',
+                          hintText: 'Add a new Note',
+                          labelText: 'Enter a new note',
                           border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black87),
                               borderRadius: BorderRadius.circular(10)),
@@ -58,7 +56,7 @@ class MyNote extends StatelessWidget {
                             onPressed: () {
                               Get.back();
                             },
-                            child: Text('Geri'),
+                            child: Text('Cancel'),
 
                           ),
                           ElevatedButton(
@@ -73,7 +71,7 @@ class MyNote extends StatelessWidget {
                               }
                               Get.back();
                             },
-                            child: index == 0 ? Text('Ekle') : Text('Düzelt'),
+                            child: index == 0 ? Text('Add') : Text('Cancel'),
                           )
                         ])
                   ],
